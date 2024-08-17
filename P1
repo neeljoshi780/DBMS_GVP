@@ -1,0 +1,54 @@
+(P1).
+
+create database gvp_neel;
+use gvp_neel;
+
+create table s(
+s_no char(3) primary key,
+s_name varchar(50),
+s_status int,
+s_city varchar(25)
+);
+
+insert into s values('s1',"Smith",20,"London"),
+('s2',"Jones",10,"Paris"),
+('s3',"Blake",30,"Paris"),
+('s4',"Clark",20,"London"),
+('s5',"Adams",30,"Athens");
+
+create table p(
+p_no char(3) primary key,
+p_name varchar(20),
+color varchar(10),
+weight float(5.2),
+p_city varchar(25)
+);
+
+insert into p values('p1',"Nut","Red",12.0,"London"),
+('p2',"Bolt","Green",17.0,"Paris"),
+('p3',"Screw","Blue",17.0,"Oslo"),
+('p4',"Screw","Red",14.0,"London"),
+('p5',"Cam","Blue",12.0,"Paris"),
+('p6',"Cog","Red",19.0,"London");
+
+create table sp(
+s_no char(3),
+p_no char(3),
+qty int,
+primary key(s_no,p_no),
+foreign key(s_no) references s(s_no),
+foreign key(p_no) references p(p_no)
+);
+
+insert into sp values('s1','p1',300),
+('s1','p2',200),
+('s1','p3',400),
+('s1','p4',200),
+('s1','p5',100),
+('s1','p6',100),
+('s2','p1',300),
+('s2','p2',400),
+('s3','p2',200),
+('s4','p2',200),
+('s4','p4',300),
+('s4','p5',400);

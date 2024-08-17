@@ -1,0 +1,4 @@
+(3).
+
+#6. Show suppler no and qty for part supply for highest weight part.
+select sp.s_no,sp.qty from sp,p where p.p_no=sp.p_no order by p.weight desc limit 1;

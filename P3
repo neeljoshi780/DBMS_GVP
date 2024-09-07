@@ -8,3 +8,9 @@ select s.s_name,sp.qty from s,sp,p where s.s_no=sp.s_no and p.p_no=sp.p_no and p
 
 #8. Show suppler name , part city and qty for suppler status is less then 30 shipment supply.
 select s.s_name,p.p_city,sp.qty from s,p,sp where s.s_no=sp.s_no and p.p_no=sp.p_no and s.s_status<30;
+
+#9. Show each supplers total qty supply.
+select s_no, sum(sp.qty) from sp group by s_no;
+
+#10. Show each parts total qty supply.
+select p_no, sum(sp.qty) from sp group by p_no;

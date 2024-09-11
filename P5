@@ -18,7 +18,7 @@ emp_boss_id int,
 emp_salary bigint,
 foreign key(emp_dept_id) references dept(dept_id)
 );
-insert into emp values(101,"Nikhil",1,401,210000),
+insert into emp values(101,"Nikhil",1,401,200000),
 (102,"Satish",1,101,210000),
 (103,"Vrushali",1,101,175000),
 (201,"Archna",2,401,200000),

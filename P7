@@ -1,0 +1,7 @@
+(7).
+
+3.Show Department name and that department maximum salary.
+select dept.dept_name,max(emp.emp_salary) from dept,emp where dept.dept_id = emp.emp_dept_id group by dept.dept_id;
+
+4. Show employee department name, that department total employee count.
+select dept.dept_name,count(emp.emp_id) from dept,emp where dept.dept_id = emp.emp_dept_id group by dept.dept_id;

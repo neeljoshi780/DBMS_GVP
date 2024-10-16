@@ -1,0 +1,14 @@
+# (9)
+create trigger ins_sum before insert on account for each row set @sum=@sum + new.amount;
+
+# (1)
+set @sum=0;
+# (2)
+insert into account values(101,150.50),
+(102,-50.50);
+# (3)
+select @sum as 'Total_Insert_Amount';
+
+# Extra check data
+select * from account;
+select sum(amount) from account;

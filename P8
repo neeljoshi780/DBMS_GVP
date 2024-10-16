@@ -1,0 +1,4 @@
+create table account(
+acc_no int,
+amount decimal(10,2)
+);

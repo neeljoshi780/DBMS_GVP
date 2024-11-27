@@ -1,0 +1,19 @@
+use gvp_neel;
+
+create table account(
+acc_no int,
+amount decimal(10,2)
+);
+
+create trigger ins_sum before insert on account for each row set @sum=@sum + new.amount;
+
+create trigger ins_transaction before insert on account for each row precedes ins_sum set
+@deposits=@deposits + if(new.amount>0,new.amount,0),
+@withdrawals=@withdrawals + if(new.amount<0,-new.amount,0);
+
+set @sum=0;
+set @deposits=0;
+set @withdrawals=0;
+
+insert into account values(137,1400.00),(141,2000.00),(97,-1000.00);
+select @deposits as "Deposits amt", @withdrawals as "Withdrawal amt", @sum As "Total amt";
